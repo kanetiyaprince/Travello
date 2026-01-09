@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Django
+db.sqlite3
+*.log
+local_settings.py
+
+# Virtual Environment (Very important to ignore!)
+venv/
+env/
+.env
+
+# Media (User uploads should usually not be in Git)
+media/
