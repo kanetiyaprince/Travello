@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -77,15 +78,20 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'travello',
-        'USER' : 'postgres',
-        'PASSWORD' : 'root',
-        'HOST' : 'localhost'
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'travello',
+            'USER': 'postgres',
+            'PASSWORD': 'root',
+            'HOST': 'localhost',
+        }
+    }
 
 
 # Password validation
