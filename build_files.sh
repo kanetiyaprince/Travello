@@ -1,7 +1,11 @@
 # build_files.sh
 
-# Install dependencies with the break-system-packages flag
-python3.9 -m pip install -r requirements.txt --break-system-packages
+echo "Downloading pip..."
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.9 get-pip.py
 
-# Collect static files
+echo "Installing dependencies..."
+python3.9 -m pip install -r requirements.txt
+
+echo "Collecting static files..."
 python3.9 manage.py collectstatic --noinput --clear
