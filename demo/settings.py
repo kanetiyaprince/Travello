@@ -143,7 +143,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True # may generate an error
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 
 SESSION_COOKIE_AGE = 1209600
 
